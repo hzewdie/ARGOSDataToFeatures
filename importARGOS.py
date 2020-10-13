@@ -50,7 +50,7 @@ while lineString:
         obsLon= line2Data[5]
         
         # Print results to see how we're doing
-        print (tagID, "Date: "+date,"Time: "+time,"Location Class: "+LC,"Lat:"+obsLat,"Long:"+obsLon)
+        print (tagID, date,time,LC,"Lat:"+obsLat,"Long:"+obsLon)
         
     # Move to the next line so the while loop progresses
     lineString = inputFileObj.readline()
