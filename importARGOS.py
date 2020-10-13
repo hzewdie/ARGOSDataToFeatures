@@ -85,8 +85,12 @@ while lineString:
         except Exception as e:
             print(f"Error adding record {tagID} to the output")
             
+        #convert point to a geometric point, with spatial reference 
+        inputSR = arcpy.SpatialReference(4326)
+        obsGeomPoint = arcpy.PointGeometry(obsPoint,inputSR)
+        
         # add a feature using our insert cursor
-        feature = cur.insertRow((obsPoint,tagID,LC,date.replace(".","/") + " " + time))
+        feature = cur.insertRow((obsGeomPoint,tagID,LC,date.replace(".","/") + " " + time))
         # Print results to see how we're doing
         #print (tagID, date,time,LC,"Lat:"+obsLat,"Long:"+obsLon)
         
